@@ -36,6 +36,8 @@ public class Utente {
 	private String cognome;
 	@Column(name = "dateCreated")
 	private Date dateCreated;
+	@Column(name = "creditoresiduo")
+	private Integer creditoResiduo;
 
 	// se non uso questa annotation viene gestito come un intero
 	@Enumerated(EnumType.STRING)
@@ -46,7 +48,7 @@ public class Utente {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "utente")
 	private Set<Acquisto> acquisti = new HashSet<Acquisto>(0);
-	
+
 	@ManyToMany
 	@JoinTable(name = "utente_ruolo", joinColumns = @JoinColumn(name = "utente_id", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ruolo_id", referencedColumnName = "ID"))
 	private Set<Ruolo> ruoli = new HashSet<Ruolo>(0);
@@ -74,8 +76,25 @@ public class Utente {
 		this.cognome = cognome;
 		this.dateCreated = dateCreated;
 	}
-	
-	
+
+	public Utente(String username, String password, String nome, String cognome, Date dateCreated,
+			Integer creditoResiduo) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.dateCreated = dateCreated;
+		this.creditoResiduo = creditoResiduo;
+	}
+
+	public Integer getCreditoResiduo() {
+		return creditoResiduo;
+	}
+
+	public void setCreditoResiduo(Integer creditoResiduo) {
+		this.creditoResiduo = creditoResiduo;
+	}
 
 	public Set<Acquisto> getAcquisti() {
 		return acquisti;

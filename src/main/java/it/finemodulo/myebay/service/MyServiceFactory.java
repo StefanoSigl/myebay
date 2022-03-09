@@ -4,6 +4,8 @@ import it.finemodulo.myebay.dao.acquisto.AcquistoDAO;
 import it.finemodulo.myebay.dao.acquisto.AcquistoDAOImpl;
 import it.finemodulo.myebay.dao.annuncio.AnnuncioDAO;
 import it.finemodulo.myebay.dao.annuncio.AnnuncioDAOImpl;
+import it.finemodulo.myebay.dao.categoria.CategoriaDAO;
+import it.finemodulo.myebay.dao.categoria.CategoriaDAOImpl;
 import it.finemodulo.myebay.dao.ruolo.RuoloDAO;
 import it.finemodulo.myebay.dao.ruolo.RuoloDAOImpl;
 import it.finemodulo.myebay.dao.utente.UtenteDAO;
@@ -12,6 +14,8 @@ import it.finemodulo.myebay.service.acquisto.AcquistoService;
 import it.finemodulo.myebay.service.acquisto.AcquistoServiceImpl;
 import it.finemodulo.myebay.service.annuncio.AnnuncioService;
 import it.finemodulo.myebay.service.annuncio.AnnuncioServiceImpl;
+import it.finemodulo.myebay.service.categoria.CategoriaService;
+import it.finemodulo.myebay.service.categoria.CategoriaServiceImpl;
 import it.finemodulo.myebay.service.ruolo.RuoloService;
 import it.finemodulo.myebay.service.ruolo.RuoloServiceImpl;
 import it.finemodulo.myebay.service.utente.UtenteService;
@@ -34,6 +38,11 @@ public class MyServiceFactory {
 	private static RuoloService RUOLO_SERVICE_INSTANCE;
 
 	private static RuoloDAO RUOLO_DAO_INSTANCE = null;
+	
+	private static CategoriaService CATEGORIA_SERVICE_INSTANCE;
+
+	private static CategoriaDAO CATEGORIA_DAO_INSTANCE = null;
+	
 
 	public static UtenteService getUtenteServiceInstance() {
 		if (UTENTE_SERVICE_INSTANCE == null)
@@ -77,5 +86,15 @@ public class MyServiceFactory {
 
 		RUOLO_SERVICE_INSTANCE.setRuoloDAO(RUOLO_DAO_INSTANCE);
 		return RUOLO_SERVICE_INSTANCE;
+	}
+	public static CategoriaService getCategoriaServiceInstance() {
+		if (CATEGORIA_SERVICE_INSTANCE == null)
+			CATEGORIA_SERVICE_INSTANCE = new CategoriaServiceImpl();
+
+		if (CATEGORIA_DAO_INSTANCE == null)
+			CATEGORIA_DAO_INSTANCE = new CategoriaDAOImpl();
+
+		CATEGORIA_SERVICE_INSTANCE.setCategoriaDAO(CATEGORIA_DAO_INSTANCE);
+		return CATEGORIA_SERVICE_INSTANCE;
 	}
 }

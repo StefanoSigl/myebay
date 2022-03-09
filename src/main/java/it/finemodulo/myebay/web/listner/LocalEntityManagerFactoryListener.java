@@ -10,10 +10,12 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import it.finemodulo.myebay.model.Categoria;
 import it.finemodulo.myebay.model.Ruolo;
 import it.finemodulo.myebay.model.StatoUtente;
 import it.finemodulo.myebay.model.Utente;
 import it.finemodulo.myebay.service.MyServiceFactory;
+import it.finemodulo.myebay.service.categoria.CategoriaService;
 import it.finemodulo.myebay.service.ruolo.RuoloService;
 import it.finemodulo.myebay.service.utente.UtenteService;
 
@@ -34,6 +36,7 @@ public class LocalEntityManagerFactoryListener implements ServletContextListener
 			// questa chiamata viene fatta qui per semplicità ma in genere è meglio trovare
 			// altri modi per fare init
 			initAdminUserAndRuoli();
+			initCategorie();
 
 		} catch (Throwable ex) {
 			System.err.println("Initial SessionFactory creation failed." + ex);
@@ -88,6 +91,18 @@ public class LocalEntityManagerFactoryListener implements ServletContextListener
 			utenteServiceInstance.inserisciNuovo(user);
 			utenteServiceInstance.aggiungiRuolo(user,
 					ruoloServiceInstance.cercaPerDescrizioneECodice("Classic User", "ROLE_CLASSIC_USER"));
+		}
+
+	}
+
+	private void initCategorie() throws Exception {
+		CategoriaService categoriaServiceInstance = MyServiceFactory.getCategoriaServiceInstance();
+
+		if (categoriaServiceInstance.cercaPerDescrizioneECodice("Elettronica", "CAT_ELETTR") == null) {
+			categoriaServiceInstance.inserisciNuovo(new Categoria("Elettronica", "CAT_ELETTR"));
+		}
+		if (categoriaServiceInstance.cercaPerDescrizioneECodice("Casa", "CAT_CASA") == null) {
+			categoriaServiceInstance.inserisciNuovo(new Categoria("Casa", "CAT_CASA"));
 		}
 
 	}
