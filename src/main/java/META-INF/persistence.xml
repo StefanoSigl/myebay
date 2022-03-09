@@ -5,8 +5,11 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
         version="2.2">
 	<persistence-unit name="myebay_unit" transaction-type="RESOURCE_LOCAL">
-		<class>it.test.myebay.model.Utente</class>
-		<class>it.test.myebay.model.Ruolo</class>
+		<class>it.finemodulo.myebay.model.Utente</class>
+		<class>it.finemodulo.myebay.model.Ruolo</class>
+		<class>it.finemodulo.myebay.model.Annuncio</class>
+		<class>it.finemodulo.myebay.model.Acquisto</class>
+		<class>it.finemodulo.myebay.model.Categoria</class>
 		
 		<properties>
 			<!-- setup con MySql -->
