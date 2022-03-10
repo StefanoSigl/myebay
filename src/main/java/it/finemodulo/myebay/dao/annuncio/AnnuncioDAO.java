@@ -9,4 +9,6 @@ public interface AnnuncioDAO extends IBaseDAO<Annuncio> {
 
 	public List<Annuncio> findByExample(Annuncio example);
 
+	public List<Annuncio> findByUtente(long parseLong);
+
 }

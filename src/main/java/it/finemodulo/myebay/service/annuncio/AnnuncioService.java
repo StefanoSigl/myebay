@@ -11,4 +11,8 @@ public interface AnnuncioService {
 
 	public List<Annuncio> findByExample(Annuncio example);
 
+	public  List<Annuncio> findByUtente(long parseLong);
+
+	public void inserisciNuovo(Annuncio annuncioInsert) throws Exception;
+
 }

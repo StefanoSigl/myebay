@@ -181,6 +181,7 @@ public class UtenteServiceImpl implements UtenteService {
 
 			// eseguo quello che realmente devo fare
 			Optional<Utente> result = utenteDAO.login(username, password);
+			result.get().setPassword("XXX");
 			return result.isPresent() ? result.get() : null;
 
 		} catch (Exception e) {

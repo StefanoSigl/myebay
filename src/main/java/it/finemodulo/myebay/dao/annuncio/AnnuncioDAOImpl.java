@@ -40,7 +40,11 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	}
 
 	public void insert(Annuncio input) throws Exception {
-		// TODO Auto-generated method stub
+		if (input == null) {
+			throw new Exception("Problema valore in input");
+		}
+
+		entityManager.persist(input);
 
 	}
 
@@ -91,6 +95,14 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 		}
 
 		return typedQuery.getResultList();
+	}
+
+	@Override
+	public List<Annuncio> findByUtente(long parseLong) {
+
+		return entityManager
+				.createQuery("from Annuncio a left join fetch a.utente u where u.id= :idUtente ", Annuncio.class)
+				.setParameter("idUtente", parseLong).getResultList();
 	}
 
 }

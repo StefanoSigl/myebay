@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("errorMessage", "Utente non trovato.");
 				destinazione = "login.jsp";
 			} else {
+				
 				request.getSession().setAttribute("userInfo", utenteInstance);
 				destinazione = "";
 			}

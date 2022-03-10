@@ -88,6 +88,10 @@ public class Utente {
 		this.creditoResiduo = creditoResiduo;
 	}
 
+	public Utente(Long id) {
+		this.id = id;
+	}
+
 	public Integer getCreditoResiduo() {
 		return creditoResiduo;
 	}

@@ -18,7 +18,7 @@
             <c:if test="${userInfo!=null }">
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/">Home</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareAreaPersonaleUtenteServlet">Area Personale</a></li>
-              <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListAnnunciServlet">Annunci Personali</a></li>
+              <li><a class="dropdown-item" href="${pageContext.request.contextPath}/annuncio/ExecuteAnnunciPersonaliServlet?idUtente=${userInfo.id}">Annunci Personali</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListAcquistiServlet">Acquisti</a></li>
              </c:if>
               <c:if test="${userInfo==null }">

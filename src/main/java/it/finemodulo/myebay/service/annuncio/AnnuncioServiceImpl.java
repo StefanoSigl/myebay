@@ -23,10 +23,9 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
 
 		try {
-			
+
 			annuncioDAO.setEntityManager(entityManager);
 
-			
 			return annuncioDAO.findByExample(example);
 
 		} catch (Exception e) {
@@ -35,6 +34,47 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 		} finally {
 			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
 		}
+	}
+
+	@Override
+	public List<Annuncio> findByUtente(long parseLong) {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+
+			annuncioDAO.setEntityManager(entityManager);
+
+			return annuncioDAO.findByUtente(parseLong);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
+	@Override
+	public void inserisciNuovo(Annuncio annuncioInsert) throws Exception {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+
+			entityManager.getTransaction().begin();
+
+			annuncioDAO.setEntityManager(entityManager);
+
+			annuncioDAO.insert(annuncioInsert);
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+		
 	}
 
 }
