@@ -10,7 +10,7 @@ public interface CategoriaService {
 
 	public void setCategoriaDAO(CategoriaDAO categoriaDAO);
 
-	public List<Categoria> listAll();
+	public List<Categoria> listAll() throws Exception;
 
 	public Categoria cercaPerDescrizioneECodice(String descrizione, String codice);
 

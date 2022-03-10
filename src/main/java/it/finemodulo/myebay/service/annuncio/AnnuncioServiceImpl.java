@@ -1,6 +1,12 @@
 package it.finemodulo.myebay.service.annuncio;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import it.finemodulo.myebay.dao.annuncio.AnnuncioDAO;
+import it.finemodulo.myebay.model.Annuncio;
+import it.finemodulo.myebay.web.listner.LocalEntityManagerFactoryListener;
 
 public class AnnuncioServiceImpl implements AnnuncioService {
 
@@ -10,6 +16,25 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 	public void setAnnuncioDAO(AnnuncioDAO annuncioDAO) {
 		this.annuncioDAO = annuncioDAO;
 
+	}
+
+	@Override
+	public List<Annuncio> findByExample(Annuncio example) {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			
+			annuncioDAO.setEntityManager(entityManager);
+
+			
+			return annuncioDAO.findByExample(example);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
 	}
 
 }

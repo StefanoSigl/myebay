@@ -52,6 +52,13 @@ public class Annuncio {
 		this.aperto = aperto;
 	}
 
+	
+	public Annuncio(String testoAnnuncio, Integer prezzo) {
+		super();
+		this.testoAnnuncio = testoAnnuncio;
+		this.prezzo = prezzo;
+	}
+
 	public Set<Categoria> getCategorie() {
 		return categorie;
 	}

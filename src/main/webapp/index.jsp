@@ -50,10 +50,14 @@
 				</div>
 			    
 			     <div class="p-5 mb-4 bg-light rounded-3">
-				      <div class="container-fluid py-5">
+				          <div class="container-fluid py-5">
 				        <h1 class="display-5 fw-bold">Benvenuto in My Ebay</h1>
-				        <p class="col-md-8 fs-4">Questa piattaforma ti permette di creare annunci personalizzati con i quali vendere qualunque cosa, purchè usi le categorie giuste :P! oppure acuista qualcosa!! </p>
-				       
+				        <p class="col-md-8 fs-4">Questa piattaforma ti permette di creare annunci personalizzati con i quali vendere qualunque cosa, purchè usi le categorie giuste :P! oppure acquista qualcosa!! </p>
+				     </div>
+				    <div class='card'>
+				    <div class='card-header'>
+				        <h5>Cerca Annunci</h5> 
+				    </div>
 				        <div class='card-body'>
 		
 							<form method="post" action="ExecuteSearchAnnuncioServlet" class="row g-3" >
@@ -84,17 +88,12 @@
 								
 								<div class="col-12">
 									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
-									<a class="btn btn-outline-primary ml-2" href="PrepareInsertFilmServlet">Add New</a>
 									<input class="btn btn-outline-warning" type="reset" value="Ripulisci">
 								</div>
 								
 						</form>
-  
-				       
-				       
-				       
-				       
-				       
+				  </div>     
+			    </div> 
 			    </div>
 			    
 			  </div>
@@ -106,10 +105,10 @@
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
-			        <h2>Ricerca Registi</h2>
-			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareSearchRegistaServlet" class="icon-link">
-			          Vai alla funzionalità
+			        <h2>Registrazione</h2>
+			        <p>Non sei iscritto clicca qui!</p>
+			        <a href="RegistrationUtenteServlet" class="icon-link">
+			         Registrati
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
@@ -117,24 +116,14 @@
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
 			        </div>
-			        <h2>Inserisci Nuovo Regista</h2>
-			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareInsertRegistaServlet" class="icon-link">
-			          Vai alla funzionalità
+			        <h2>Login</h2>
+			        <p> Sei già registrato effettua il login!</p>
+			        <a href="PrepareLoginUtenteServlet" class="icon-link">
+			         Effettua il login
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
-			      <div class="feature col">
-			        <div class="feature-icon bg-primary bg-gradient">
-			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
-			        </div>
-			        <h2>Ricerca Film</h2>
-			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareSearchFilmServlet" class="icon-link">
-			          Vai alla funzionalità
-			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-			        </a>
-			      </div>
+			      
 			    </div>
 			  </div>
 			  

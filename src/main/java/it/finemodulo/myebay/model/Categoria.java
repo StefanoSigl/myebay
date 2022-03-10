@@ -29,6 +29,11 @@ public class Categoria {
 		this.descrizione = descrizione;
 		this.codice = codice;
 	}
+	
+	public Categoria(Long id) {
+		super();
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;
