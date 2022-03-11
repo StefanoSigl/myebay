@@ -20,4 +20,8 @@ public interface AnnuncioService {
 
 	public void effettuaAcquisto(Annuncio annuncioInAcquisto, Utente utenteInfo) throws Exception;
 
+	public void rimuovi(long idAnnuncio) throws Exception;
+
+	public void aggiorna(Annuncio annuncioPerEdit) throws Exception;
+
 }

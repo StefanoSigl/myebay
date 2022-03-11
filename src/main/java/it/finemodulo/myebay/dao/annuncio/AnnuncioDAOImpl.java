@@ -13,8 +13,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import it.finemodulo.myebay.model.Annuncio;
 import it.finemodulo.myebay.model.Categoria;
-import it.finemodulo.myebay.model.Ruolo;
-import it.finemodulo.myebay.model.Utente;
 
 public class AnnuncioDAOImpl implements AnnuncioDAO {
 
@@ -30,12 +28,15 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	}
 
 	public Optional<Annuncio> findOne(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Annuncio result = entityManager.find(Annuncio.class, id);
+		return result != null ? Optional.of(result) : Optional.empty();
 	}
 
 	public void update(Annuncio input) throws Exception {
-		// TODO Auto-generated method stub
+		if (input == null) {
+			throw new Exception("Problema valore in input");
+		}
+		input = entityManager.merge(input);
 
 	}
 
@@ -49,7 +50,10 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	}
 
 	public void delete(Annuncio input) throws Exception {
-		// TODO Auto-generated method stub
+		if (input == null) {
+			throw new Exception("Problema valore in input");
+		}
+		entityManager.remove(entityManager.merge(input));
 
 	}
 

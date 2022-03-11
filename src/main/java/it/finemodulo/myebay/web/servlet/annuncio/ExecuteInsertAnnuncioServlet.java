@@ -69,7 +69,7 @@ public class ExecuteInsertAnnuncioServlet extends HttpServlet {
 
 			request.setAttribute("annunciPersonali_list_attribute",
 					MyServiceFactory.getAnnuncioServiceInstance().findByUtente(utenteInSession.getId()));
-			request.setAttribute("successMessage", "Inserimento Riuscito");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
@@ -77,6 +77,9 @@ public class ExecuteInsertAnnuncioServlet extends HttpServlet {
 					response);
 			return;
 		}
-		request.getRequestDispatcher("listPersonali.jsp").forward(request, response);
+		// request.getRequestDispatcher("listPersonali.jsp").forward(request, response);
+		request.getRequestDispatcher("ExecuteAnnunciPersonaliServlet?idUtente="
+				+ ((Utente) request.getSession().getAttribute("userInfo")).getId() + "&operationaResult=SUCCESS")
+				.forward(request, response);
 	}
 }
