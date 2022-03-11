@@ -4,11 +4,11 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="./header.jsp" />
+	 	<jsp:include page="/public/header.jsp" />
 		<!-- Custom styles per le features di bootstrap 'Columns with icons' -->
 	   <link href="${pageContext.request.contextPath}/assets/css/features.css" rel="stylesheet">
 	   
-	   <title>My Ebay</title>
+	   <title>Area Personale</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
 	   		
@@ -37,7 +37,7 @@
 	   
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="./navbar.jsp"></jsp:include>
+	   		<jsp:include page="/public/navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -50,86 +50,62 @@
 				</div>
 			    
 			     <div class="p-5 mb-4 bg-light rounded-3">
-				          <div class="container-fluid py-5">
-				        <h1 class="display-5 fw-bold">Benvenuto in My Ebay</h1>
-				        <p class="col-md-8 fs-4">Questa piattaforma ti permette di creare annunci personalizzati con i quali vendere qualunque cosa, purchè usi le categorie giuste :P! oppure acquista qualcosa!! </p>
-				     </div>
-				    <div class='card'>
-				    <div class='card-header'>
-				        <h5>Cerca Annunci</h5> 
-				    </div>
-				        <div class='card-body'>
-		
-							<form method="post" action="ExecuteSearchAnnuncioServlet" class="row g-3" >
-							
-							
-								<div class="col-md-6">
-									<label for="testoAnnuncio" class="form-label">Descrizione</label>
-									<input type="text" name="testoAnnuncio" id="testoAnnuncio" class="form-control" placeholder="Inserire parole chiave che potrebbero essere nella descrizione " >
-								</div>
-								
-								<div class="col-md-6">
-									<label for="prezzo" class="form-label">Prezzo</label>
-									<input type="number" name="prezzo" id="prezzo" class="form-control" placeholder="Inserire un minimo di prezzo" >
-								</div>
-							
-								<div class="col-md-6 form-check">
-									<p>Categorie:</p>
-									<c:forEach items="${mappaCategorie_attr}" var="categoriaEntry">
-										<div class="form-check">
-											  <input class="form-check-input" name="categoriaEntry" type="checkbox" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}">
-											  <label class="form-check-label" for="categoriaInput-${categoriaEntry.key.id}" >
-											    ${categoriaEntry.key.descrizione}
-											  </label>
-										</div>
-								  	</c:forEach>
-									</div>
-								
-								
-								<div class="col-12">
-									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
-									<input class="btn btn-outline-warning" type="reset" value="Ripulisci">
-								</div>
-								
-						</form>
-				  </div>     
-			    </div> 
-			    </div>
-			    
-			  </div>
-			  
-			  <!--  features di bootstrap 'Columns with icons'  -->
-			  <div class="container px-4 py-5" id="featured-3">
+				     
+				     
+				         <div class="container-fluid py-5">
+				        <h1 class="display-5 fw-bold">Area Personale di ${userInfo.username} </h1>
+				        <p class="col-md-8 fs-4">Consulta i tuoi annunci o i tuoi acquisti, e mi raccomando non spendere troppo!! </p>
+				        
+				         <div class="container px-4 py-5" id="featured-3">
 			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 			      <div class="feature col">
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
-			        <h2>Registrazione</h2>
-			        <p>Non sei iscritto clicca qui!</p>
-			        <a href="RegistrationUtenteServlet" class="icon-link">
-			         Registrati
-			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-			        </a>
+			        <h2>I tuoi Acquisti </h2>
+			        <p>Da qui puoi visualizzare tutto quello che hai comprato, comodo no?</p>
+			        <a href="PrepareSearchRegistaServlet" class="icon-link">
+			          Vai agli acquisti
+			          <svg class="bi" width="1em" height="1em" > <use xlink:href="#chevron-right"/> </svg> 				
+					</a>
 			      </div>
 			      <div class="feature col">
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
 			        </div>
-			        <h2>Login</h2>
-			        <p> Sei già registrato effettua il login!</p>
-			        <a href="PrepareLoginUtenteServlet" class="icon-link">
-			         Effettua il login
+			        <h2>I tuoi Annunci</h2>
+			        <p> Qui invece puoi visualizzare i tuoi annunci chi sa se qualcuno ha comprato qualcosa!!</p>
+			        <a href="PrepareInsertRegistaServlet" class="icon-link">
+			          Vai agli annunci
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
-			      
+			      <div class="feature col">
+			        <div class="feature-icon bg-primary bg-gradient">
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+			        </div>
+			        <h2>Cerca Annunci</h2>
+			        <p>Puoi sempre tornare ad acquistare qualcosa!!</p>
+			        <a href="PrepareSearchFilmServlet" class="icon-link">
+			          Vai alla ricerca annunci
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+			        </a>
+			      </div>
 			    </div>
 			  </div>
+				        
+				        
+				     </div>
+				   
+			   </div>
+			  </div>
+			  
+			  <!--  features di bootstrap 'Columns with icons'  -->
+			 
 			  
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="./footer.jsp" />
+			<jsp:include page="/public/footer.jsp" />
 	  </body>
 </html>

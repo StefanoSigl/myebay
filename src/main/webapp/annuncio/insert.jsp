@@ -4,14 +4,14 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../header.jsp" />
+	 	<jsp:include page="/public/header.jsp" />
 	   
 	   <title>Inserisci Nuovo Annuncio</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="../navbar.jsp"></jsp:include>
+	   		<jsp:include page="/public/navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -46,7 +46,7 @@
 									<p>Categorie:</p>
 									<c:forEach items="${mappaCategorie_attr}" var="categoriaEntry">
 										<div class="form-check">
-											  <input class="form-check-input" name="categoriaEntry" type="checkbox" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id} ${categoriaEntry.value?'checked':'' }">
+											  <input class="form-check-input" name="categoriaEntry" type="checkbox" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}" ${categoriaEntry.value?'checked':''}>
 											  <label class="form-check-label" for="categoriaInput-${categoriaEntry.key.id}" >
 											    ${categoriaEntry.key.descrizione}
 											  </label>
@@ -76,6 +76,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="../footer.jsp" />
+			<jsp:include page="/public/footer.jsp" />
 	  </body>
 </html>

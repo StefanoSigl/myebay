@@ -105,4 +105,12 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 				.setParameter("idUtente", parseLong).getResultList();
 	}
 
+	@Override
+	public Optional<Annuncio> findOneWithUtenteECategorie(long idAnnuncioParam) {
+
+		return entityManager.createQuery(
+				"from Annuncio a left join fetch a.utente u left join fetch a.categorie c where a.id= :idAnnuncio",
+				Annuncio.class).setParameter("idAnnuncio", idAnnuncioParam).getResultList().stream().findFirst();
+	}
+
 }

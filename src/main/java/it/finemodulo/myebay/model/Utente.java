@@ -92,6 +92,16 @@ public class Utente {
 		this.id = id;
 	}
 
+
+	public Utente(String username, String password, String nome, String cognome, Integer creditoResiduo) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.creditoResiduo = creditoResiduo;
+	}
+
 	public Integer getCreditoResiduo() {
 		return creditoResiduo;
 	}
@@ -183,6 +193,14 @@ public class Utente {
 	public boolean isAdmin() {
 		for (Ruolo ruoloItem : ruoli) {
 			if (ruoloItem.getCodice().equals(Ruolo.ROLE_ADMIN))
+				return true;
+		}
+		return false;
+	}
+
+	public boolean isUser() {
+		for (Ruolo ruoloItem : ruoli) {
+			if (ruoloItem.getCodice().equals(Ruolo.ROLE_CLASSIC_USER))
 				return true;
 		}
 		return false;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import it.finemodulo.myebay.dao.annuncio.AnnuncioDAO;
 import it.finemodulo.myebay.model.Annuncio;
+import it.finemodulo.myebay.model.Utente;
 
 public interface AnnuncioService {
 
@@ -14,5 +15,9 @@ public interface AnnuncioService {
 	public  List<Annuncio> findByUtente(long parseLong);
 
 	public void inserisciNuovo(Annuncio annuncioInsert) throws Exception;
+
+	public Annuncio findOneWithUtenteECategorie(long idAnnuncio);
+
+	public void effettuaAcquisto(Annuncio annuncioInAcquisto, Utente utenteInfo) throws Exception;
 
 }

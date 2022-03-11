@@ -6,7 +6,7 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../header.jsp" />
+	 	<jsp:include page="./header.jsp" />
 	   
 	   <title>Annunci attivi</title>
 	 </head>
@@ -14,7 +14,7 @@
 	<body class="d-flex flex-column h-100">
 	 
 		<!-- Fixed navbar -->
-		<jsp:include page="../navbar.jsp"></jsp:include>
+		<jsp:include page="./navbar.jsp"></jsp:include>
 	 
 	
 		<!-- Begin page content -->
@@ -51,9 +51,9 @@
 										<tr>
 											<td>${annuncioItem.testoAnnuncio}</td>
 											<td>${annuncioItem.prezzo }</td>
-											<td><fmt:formatDate type = "date" value = "${annuncioItem.dataCreazione }" /></td>
+											<td><fmt:formatDate type = "date" value = "${annuncioItem.dataInserimento }" /></td>
 											<td>
-												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaUtenteServlet?idUtente=${utenteItem.id }">Visualizza</a>
+												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaAnnuncioServlet?idAnnuncio=${annuncioItem.id }">Visualizza</a>
 												
 											</td>
 										</tr>
@@ -74,7 +74,7 @@
 		</main>
 		
 		<!-- Footer -->
-		<jsp:include page="../footer.jsp" />
+		<jsp:include page="./footer.jsp" />
 		
 	</body>
 </html>

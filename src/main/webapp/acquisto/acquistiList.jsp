@@ -8,7 +8,7 @@
 	 	<!-- Common imports in pages -->
 	 	<jsp:include page="/public/header.jsp" />
 	   
-	   <title>Annunci attivi</title>
+	   <title>Annunci Fatti</title>
 	 </head>
 	 
 	<body class="d-flex flex-column h-100">
@@ -32,30 +32,28 @@
 		  
 		  		<div class='card'>
 				    <div class='card-header'>
-				        <h5>Annunci attivi</h5> 
+				        <h5>Acquisti attivi</h5> 
 				    </div>
 				    <div class='card-body'>
-				    <a class="btn btn-primary " href="PrepareInsertAnnuncioServlet">Add New</a>
+				    
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >
 				                <thead>
 				                    <tr>
 			                         	<th>Descrizione</th>
 				                        <th>Prezzo</th>
-				                        <th>Stato</th>
 				                        <th>Data di Creazione</th>
 				                        <th>Azioni</th>
 				                    </tr>
 				                </thead>
 				                <tbody>
-				                	<c:forEach items="${annunciPersonali_list_attribute }" var="annuncioItem">
+				                	<c:forEach items="${acquisti_attr }" var="acquistoItem">
 										<tr>
-											<td>${annuncioItem.testoAnnuncio}</td>
-											<td>${annuncioItem.prezzo }</td>
-											<td>${annuncioItem.getIsAperto()? 'Attivo':'Venduto'}</td>
-											<td><fmt:formatDate type = "date" value = "${annuncioItem.dataInserimento }" /></td>
+											<td>${acquistoItem.descrizione}</td>
+											<td>${acquistoItem.prezzo }</td>
+											<td><fmt:formatDate type = "date" value = "${acquistoItem.dataAcquisto }" /></td>
 											<td>
-												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaUtenteServlet?idUtente=${utenteItem.id }">Visualizza</a>
+												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaAcquistoServlet?idAnnuncio=${acquistoItem.id }">Visualizza</a>
 												
 											</td>
 										</tr>

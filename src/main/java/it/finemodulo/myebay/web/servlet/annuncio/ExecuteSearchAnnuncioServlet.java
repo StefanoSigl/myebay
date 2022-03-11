@@ -15,7 +15,7 @@ import it.finemodulo.myebay.model.Categoria;
 import it.finemodulo.myebay.service.MyServiceFactory;
 import it.finemodulo.myebay.utility.UtilityAnnuncio;
 
-@WebServlet("/ExecuteSearchAnnuncioServlet")
+@WebServlet("/public/ExecuteSearchAnnuncioServlet")
 public class ExecuteSearchAnnuncioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,10 +27,7 @@ public class ExecuteSearchAnnuncioServlet extends HttpServlet {
 		String prezzoParam = request.getParameter("prezzo");
 		String[] categorieChecked = request.getParameterValues("categoriaEntry");
 
-	
-
-		Annuncio example = UtilityAnnuncio.formCreateAnnuncio(testoAnnuncioParam,prezzoParam,categorieChecked);
-		
+		Annuncio example = UtilityAnnuncio.formCreateAnnuncio(testoAnnuncioParam, prezzoParam, categorieChecked);
 
 		try {
 			request.setAttribute("annunci_list_attribute",
@@ -41,6 +38,12 @@ public class ExecuteSearchAnnuncioServlet extends HttpServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			return;
 		}
-		request.getRequestDispatcher("annuncio/list.jsp").forward(request, response);
+		request.getRequestDispatcher("list.jsp").forward(request, response);
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		doPost(req, resp);
 	}
 }

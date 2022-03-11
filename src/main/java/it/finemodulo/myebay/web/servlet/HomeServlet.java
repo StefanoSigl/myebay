@@ -1,7 +1,6 @@
 package it.finemodulo.myebay.web.servlet;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.finemodulo.myebay.model.Categoria;
-import it.finemodulo.myebay.model.Utente;
 import it.finemodulo.myebay.service.MyServiceFactory;
 import it.finemodulo.myebay.utility.UtilityCategoria;
 
@@ -33,7 +31,7 @@ public class HomeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("public/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -49,7 +47,7 @@ public class HomeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("public/index.jsp").forward(request, response);
 	}
 
 }

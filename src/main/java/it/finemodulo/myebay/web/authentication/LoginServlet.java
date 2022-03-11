@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import it.finemodulo.myebay.model.Utente;
 import it.finemodulo.myebay.service.MyServiceFactory;
 
-@WebServlet("/LoginServlet")
+@WebServlet("/public/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,13 +37,23 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 			Utente utenteInstance = MyServiceFactory.getUtenteServiceInstance().accedi(loginInput, passwordInput);
+			//check se utente e null 
 			if (utenteInstance == null) {
 				request.setAttribute("errorMessage", "Utente non trovato.");
 				destinazione = "login.jsp";
 			} else {
-				
+				//tramite la sessione controlle se il login è stato effettuato attraverso il tasto compra
+				if (request.getSession().getAttribute("compra_senza_login")!=null&&(boolean) request.getSession().getAttribute("compra_senza_login")) {
+					request.getSession().setAttribute("userInfo", utenteInstance);
+					//mando redirect alla show annuncio
+					response.sendRedirect(response.encodeRedirectURL(request.getContextPath() +"/public/ExecuteVisualizzaAnnuncioServlet"));
+					return;
+					
+				}
+				//altrimenti va alla sua area personale
 				request.getSession().setAttribute("userInfo", utenteInstance);
-				destinazione = "";
+				response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/utente/AreaPersonaleServlet"));
+				return;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

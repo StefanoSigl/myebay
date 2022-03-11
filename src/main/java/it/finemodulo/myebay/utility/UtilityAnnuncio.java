@@ -35,6 +35,7 @@ public class UtilityAnnuncio {
 		Annuncio annuncioInstance = new Annuncio(testoAnnuncioParam, Integer.parseInt(prezzoParam));
 		annuncioInstance.setDataInserimento(new Date());
 		annuncioInstance.setUtente(new Utente(idUtente));
+		annuncioInstance.setIsAperto(true);
 		if (categorieChecked != null && categorieChecked.length > 0) {
 			for (String categoriaItemId : categorieChecked) {
 				annuncioInstance.getCategorie().add(new Categoria(Long.parseLong(categoriaItemId)));

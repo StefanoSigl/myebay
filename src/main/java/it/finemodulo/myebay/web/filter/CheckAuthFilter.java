@@ -18,9 +18,11 @@ import it.finemodulo.myebay.model.Utente;
 public class CheckAuthFilter implements Filter {
 
 	private static final String HOME_PATH = "";
-	private static final String[] EXCLUDED_URLS = { "/ExecuteSearchAnnuncioServlet", "/annuncio/list.jsp", "/index.jsp",
-			"/HomeServlet", "/login.jsp", "/LoginServlet", "/LogoutServlet", "/assets/","/PrepareLoginUtenteServlet" };
-	private static final String[] PROTECTED_URLS = {"/annuncio/"};
+	private static final String[] EXCLUDED_URLS = {"/public/", "/HomeServlet", "/LoginServlet", "/LogoutServlet",
+			"/assets/", "/PrepareLoginUtenteServlet" };
+	private static final String[] USERS_URLS = { "/annuncio/","/acquisto/","/utente/" };
+	private static final String[] ADMIN_URLS = { "/annuncio/","/acquisto/","/manageutente/","/utente/"};
+	
 
 	public CheckAuthFilter() {
 	}
@@ -48,10 +50,16 @@ public class CheckAuthFilter implements Filter {
 				httpResponse.sendRedirect(httpRequest.getContextPath());
 				return;
 			}
-			// controllo che utente abbia ruolo admin se nel path risulta presente /admin/
-			if (isPathForOnlyAdministrators(pathAttuale) && !utenteInSession.isAdmin()) {
+			if (isPathForOnlyAdministrators(pathAttuale) && !utenteInSession.isAdmin()
+					&& !isPathForOnlyUsers(pathAttuale)) {
 				httpRequest.setAttribute("errorMessage", "Non si è autorizzati alla navigazione richiesta");
-				httpRequest.getRequestDispatcher("/home").forward(httpRequest, httpResponse);
+				httpRequest.getRequestDispatcher("/").forward(httpRequest, httpResponse);
+				return;
+			}
+			// controllo che utente abbia ruolo admin se nel path risulta presente /admin/
+			if (isPathForOnlyUsers(pathAttuale) && !utenteInSession.isUser()&&!isPathForOnlyAdministrators(pathAttuale)) {
+				httpRequest.setAttribute("errorMessage", "Non si è autorizzati alla navigazione richiesta");
+				httpRequest.getRequestDispatcher("/").forward(httpRequest, httpResponse);
 				return;
 			}
 		}
@@ -74,14 +82,21 @@ public class CheckAuthFilter implements Filter {
 	}
 
 	private boolean isPathForOnlyAdministrators(String requestPath) {
-		for (String urlPatternItem : PROTECTED_URLS) {
+		for (String urlPatternItem : ADMIN_URLS) {
 			if (requestPath.contains(urlPatternItem)) {
 				return true;
 			}
 		}
 		return false;
 	}
-
+	private boolean isPathForOnlyUsers(String requestPath) {
+		for (String urlPatternItem : USERS_URLS) {
+			if (requestPath.contains(urlPatternItem)) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public void destroy() {
 	}
 
