@@ -28,27 +28,27 @@
 		    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 		
 		    <div class="form-floating">
-		      <input type="text" name="inputUsername" class="form-control" id="inputUsername" placeholder="username">
+		      <input type="text" name="inputUsername" value="${reg_utente_attr.username}" class="form-control" id="inputUsername" placeholder="username">
 		      <label for="inputUsername">Email address/Username</label>
 		    </div>
 		    <br>
 		    <div class="form-floating">
-		      <input type="password" name="inputPassword" class="form-control" id="inputPassword" placeholder="Password">
+		      <input type="password" name="inputPassword" value="${reg_utente_attr.password}" class="form-control" id="inputPassword" placeholder="Password">
 		      <label for="inputPassword">Password</label>
 		    </div>
 		    <br>
 			<div class="form-floating">
-		      <input type="text" name="inputNome" class="form-control" id="inputNome" placeholder="nome">
+		      <input type="text" name="inputNome" value="${reg_utente_attr.nome}" class="form-control" id="inputNome" placeholder="nome">
 		      <label for="inputNome">Nome</label>
 		    </div>
 		    <br>
 		    <div class="form-floating">
-		      <input type="text" name="inputCognome" class="form-control" id="inputCognome" placeholder="cognome">
+		      <input type="text" name="inputCognome" value="${reg_utente_attr.cognome}" class="form-control" id="inputCognome" placeholder="cognome">
 		      <label for="inputCognome">Cognome</label>
 		    </div>
 		    <br>
 		     <div class="form-floating">
-		      <input type="number" name="inputCredito" class="form-control" id="inputCredito" placeholder="credito">
+		      <input type="number" name="inputCredito" value="${reg_utente_attr.creditoResiduo}" class="form-control" id="inputCredito" placeholder="credito">
 		      <label for="inputCredito">Credito </label>
 		    </div>
 		     <br>
