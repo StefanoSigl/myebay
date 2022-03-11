@@ -75,7 +75,7 @@
 			        </div>
 			        <h2>I tuoi Annunci</h2>
 			        <p> Qui invece puoi visualizzare i tuoi annunci chi sa se qualcuno ha comprato qualcosa!!</p>
-			        <a href="PrepareInsertRegistaServlet" class="icon-link">
+			        <a  href="${pageContext.request.contextPath}/annuncio/ExecuteAnnunciPersonaliServlet?idUtente=${userInfo.id}" class="icon-link">
 			          Vai agli annunci
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -91,14 +91,33 @@
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
-			    </div>
-			  </div>
+			      
+			       <c:forEach items="${userInfo.ruoli}" var="ruoliItem">
+               <c:if test="${ruoliItem.codice eq 'ROLE_ADMIN'}">
+			  <div class="feature col">
+			         <div class="feature-icon bg-primary bg-gradient">
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+			        </div>
+			        <h2>Cerca Utenti</h2>
+			        <p>Sei un Admin? hai il privilegio di modificare gli utenti!!! </p>
+			        <a href="${pageContext.request.contextPath}/manageutente/PrepareSearchUtenteServlet" class="icon-link">
+			          Vai alla ricerca annunci
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+			        </a>
+			      </div>
+			      
+               </c:if>
+               </c:forEach>
+			      
+			     
+			 </div>
+		  </div>
 				        
 				        
-				     </div>
+	  </div>
 				   
-			   </div>
-			  </div>
+	</div>
+ </div>
 			  
 			  <!--  features di bootstrap 'Columns with icons'  -->
 			 

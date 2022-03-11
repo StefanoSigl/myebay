@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 
 import it.finemodulo.myebay.dao.utente.UtenteDAO;
+import it.finemodulo.myebay.exception.ElementNotFoundException;
 import it.finemodulo.myebay.model.Ruolo;
 import it.finemodulo.myebay.model.Utente;
 import it.finemodulo.myebay.web.listner.LocalEntityManagerFactoryListener;
@@ -213,7 +214,7 @@ public class UtenteServiceImpl implements UtenteService {
 	}
 
 	@Override
-	public Utente caricaSingoloElementoEager(long parseLong) {
+	public Utente caricaSingoloElementoEager(long parseLong) throws ElementNotFoundException {
 		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
 
 		try {
@@ -225,7 +226,7 @@ public class UtenteServiceImpl implements UtenteService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw e;
+			throw new ElementNotFoundException("Elemento non trovato");
 		} finally {
 			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
 		}

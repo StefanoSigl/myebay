@@ -114,7 +114,7 @@ public class UtenteDAOImpl implements UtenteDAO {
 			whereClauses.add("u.dateCreated >= :dateCreated ");
 			paramaterMap.put("dateCreated", example.getDateCreated());
 		}
-		if (example.getRuoli() != null) {
+		if (example.getRuoli() != null && example.getRuoli().size()>0) {
 			List<Long> idRuoli = new ArrayList<>();
 			for (Ruolo ruoloItem : example.getRuoli()) {
 				idRuoli.add(ruoloItem.getId());

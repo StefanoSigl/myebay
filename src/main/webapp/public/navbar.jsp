@@ -20,6 +20,11 @@
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/utente/AreaPersonaleServlet">Area Personale</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/annuncio/ExecuteAnnunciPersonaliServlet?idUtente=${userInfo.id}">Annunci Personali</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/acquisto/ExecuteAcquistiListUtenteServlet">Acquisti</a></li>
+               <c:forEach items="${userInfo.ruoli}" var="ruoliItem">
+               <c:if test="${ruoliItem.codice eq 'ROLE_ADMIN'}">
+               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/manageutente/PrepareSearchUtenteServlet">Ricerca Utenti</a></li>
+               </c:if>
+               </c:forEach>
              </c:if>
               <c:if test="${userInfo==null }">
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/">Home</a></li>
