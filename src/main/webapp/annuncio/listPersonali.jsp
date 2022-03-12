@@ -36,7 +36,7 @@
 				        <h5>Annunci attivi</h5> 
 				    </div>
 				    <div class='card-body'>
-				    <a class="btn btn-primary " href="PrepareInsertAnnuncioServlet">Add New</a>
+				    <a class="btn btn-success " href="PrepareInsertAnnuncioServlet">Add New</a>
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >
 				                <thead>
@@ -58,7 +58,7 @@
 											<td>
 												<a class="btn  btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/annuncio/ExecuteVisualizzaAnnuncioPersonaliServlet?idAnnuncio=${annuncioItem.id }">Visualizza</a>
 												<c:if test="${annuncioItem.getIsAperto()==true }">
-												<a class="btn  btn-sm  btn-secondary ml-2 mr-2" href="${pageContext.request.contextPath}/annuncio/PrepareEditAnnuncioServlet?idAnnuncio=${annuncioItem.id }">Edit</a>
+												<a class="btn  btn-sm btn-outline-success  ml-2 mr-2" href="${pageContext.request.contextPath}/annuncio/PrepareEditAnnuncioServlet?idAnnuncio=${annuncioItem.id }">Edit</a>
 												</c:if>
 												<c:if test="${annuncioItem.getIsAperto()==true }">
 												<a class="btn btn-outline-danger btn-sm" href="${pageContext.request.contextPath}/annuncio/PrepareDeleteAnnuncioServlet?idAnnuncio=${annuncioItem.id }">Delete</a>											

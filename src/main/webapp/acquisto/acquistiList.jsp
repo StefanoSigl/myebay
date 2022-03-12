@@ -53,7 +53,7 @@
 											<td>${acquistoItem.prezzo }</td>
 											<td><fmt:formatDate type = "date" value = "${acquistoItem.dataAcquisto }" /></td>
 											<td>
-												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaAcquistoServlet?idAcquisto=${acquistoItem.id }">Visualizza</a>
+												<a class="btn  btn-sm btn-outline-success" href="ExecuteVisualizzaAcquistoServlet?idAcquisto=${acquistoItem.id }">Visualizza</a>
 												
 											</td>
 										</tr>

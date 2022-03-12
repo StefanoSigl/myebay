@@ -53,7 +53,7 @@
 					    </div>
 					    
 					    <div class='card-footer'>
-					        <a href="ExecuteAcquistiListUtenteServlet" class='btn btn-outline-secondary' style='width:80px'>
+					        <a href="ExecuteAcquistiListUtenteServlet" class='btn btn-outline-success' style='width:80px'>
 					            <i class='fa fa-chevron-left'></i>Back
 					        </a> 			       
 					    </div>

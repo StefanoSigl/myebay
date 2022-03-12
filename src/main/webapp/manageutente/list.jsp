@@ -45,7 +45,7 @@
 				        <h5>Lista dei risultati</h5> 
 				    </div>
 				    <div class='card-body'>
-				    	<a class="btn btn-primary " href="PrepareInsertUtenteServlet">Add New</a>
+				    	<a class="btn btn-success " href="PrepareInsertUtenteServlet">Add New</a>
 				    
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >
@@ -67,7 +67,7 @@
 											<td><fmt:formatDate type = "date" value = "${utenteItem.dateCreated }" /></td>
 											<td>
 												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaUtenteServlet?idUtente=${utenteItem.id }">Visualizza</a>
-												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareEditUtenteServlet?idUtente=${utenteItem.id }">Edit</a>
+												<a class="btn  btn-sm btn-outline-success ml-2 mr-2" href="PrepareEditUtenteServlet?idUtente=${utenteItem.id }">Edit</a>
 												<c:if test="${utenteItem.stato.getTipo()  eq 'attivo' or utenteItem.stato.getTipo()  eq 'creato'}">
 												<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteUtenteServlet?idUtente=${utenteItem.id }">Delete</a>											
 												</c:if>

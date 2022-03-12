@@ -65,8 +65,8 @@
 									</div>
 								
 								<div class="col-12">
-									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
-									<a class="btn btn-outline-primary ml-2" href="PrepareInsertUtenteServlet">Add New</a>
+									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-success">Conferma</button>
+									<a class="btn btn-outline-success ml-2" href="PrepareInsertUtenteServlet">Add New</a>
 									<input class="btn btn-outline-warning" type="reset" value="Ripulisci">
 								</div>
 		

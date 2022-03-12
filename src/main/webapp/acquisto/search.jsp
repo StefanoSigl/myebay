@@ -47,7 +47,7 @@
 								
 								
 								<div class="col-12">
-									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
+									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-success">Conferma</button>
 									<input class="btn btn-outline-warning" type="reset" value="Ripulisci">
 								</div>
 								

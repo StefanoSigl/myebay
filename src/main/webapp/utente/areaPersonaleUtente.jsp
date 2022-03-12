@@ -59,34 +59,34 @@
 				         <div class="container px-4 py-5" id="featured-3">
 			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 			      <div class="feature col">
-			        <div class="feature-icon bg-primary bg-gradient">
+			        <div class="feature-icon bg-primary bg-success">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
 			        <h2>I tuoi Acquisti </h2>
 			        <p>Da qui puoi visualizzare tutto quello che hai comprato, comodo no?</p>
-			        <a href="${pageContext.request.contextPath}/acquisto/PrepareSearchAcquistiServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/acquisto/PrepareSearchAcquistiServlet"style="color: green;"class="icon-link">
 			          Vai agli acquisti
 			          <svg class="bi" width="1em" height="1em" > <use xlink:href="#chevron-right"/> </svg> 				
 					</a>
 			      </div>
 			      <div class="feature col">
-			        <div class="feature-icon bg-primary bg-gradient">
+			        <div class="feature-icon bg-primary bg-success">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
 			        </div>
 			        <h2>I tuoi Annunci</h2>
 			        <p> Qui invece puoi visualizzare i tuoi annunci chi sa se qualcuno ha comprato qualcosa!!</p>
-			        <a  href="${pageContext.request.contextPath}/annuncio/PrepareSearchAnnuncioPersonaliServlet" class="icon-link">
+			        <a  href="${pageContext.request.contextPath}/annuncio/PrepareSearchAnnuncioPersonaliServlet"style="color: green;" class="icon-link">
 			          Vai agli annunci
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
 			      <div class="feature col">
-			        <div class="feature-icon bg-primary bg-gradient">
+			        <div class="feature-icon bg-primary bg-success">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
 			        </div>
 			        <h2>Cerca Annunci</h2>
 			        <p>Puoi sempre tornare ad acquistare qualcosa!!</p>
-			        <a href="${pageContext.request.contextPath}/" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/"style="color: green;" class="icon-link">
 			          Vai alla ricerca annunci
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -95,12 +95,12 @@
 			       <c:forEach items="${userInfo.ruoli}" var="ruoliItem">
                <c:if test="${ruoliItem.codice eq 'ROLE_ADMIN'}">
 			  <div class="feature col">
-			         <div class="feature-icon bg-primary bg-gradient">
+			         <div class="feature-icon bg-primary bg-success">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
 			        </div>
 			        <h2>Cerca Utenti</h2>
 			        <p>Sei un Admin? hai il privilegio di modificare gli utenti!!! </p>
-			        <a href="${pageContext.request.contextPath}/manageutente/PrepareSearchUtenteServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/manageutente/PrepareSearchUtenteServlet" style="color: green;"class="icon-link">
 			          Vai alla ricerca annunci
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>

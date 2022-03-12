@@ -9,8 +9,12 @@
 	   <link href="${pageContext.request.contextPath}/assets/css/features.css" rel="stylesheet">
 	   
 	   <title>My Ebay</title>
+<style type="text/css">
+	 
+	   
+</style>
 	 </head>
-	   <body class="d-flex flex-column h-100" style="background-image: url('img_girl.jpg');">
+	   <body class="d-flex flex-column h-100" >
 	   		
 	   		<!-- #####################################  -->
 	   		<!-- elementi grafici per le features in basso  -->
@@ -42,7 +46,7 @@
 			
 			<!-- Begin page content -->
 			<main class="flex-shrink-0">
-			  <div class="container">
+			  <div class="container ">
 			  
 			  <div class="alert alert-success alert-dismissible fade show  ${successMessage==null?'d-none':'' }" role="alert">
 				  ${successMessage}
@@ -55,7 +59,7 @@
 			    
 			     <div class="p-5 mb-4 bg-light rounded-3">
 				          <div class="container-fluid py-5">
-				        <h1 class="display-5 fw-bold">Benvenuto in My Ebay <span style="padding-left:300px"><img alt="" src="${pageContext.request.contextPath}/assets/img/ebay.webp" width="350" height="180"> </span></h1>
+				        <h1 class="display-5 fw-bold">Benvenuto in My Ebay <span style="padding-left:150px; "><img alt="" src="${pageContext.request.contextPath}/assets/img/ebayWhite.png" width="350" height="150"> </span></h1>
 				      
 				        <p class="col-md-8 fs-4">Questa piattaforma ti permette di creare annunci personalizzati con i quali vendere qualunque cosa, purchè usi le categorie giuste :P! oppure acquista qualcosa!! </p>
 				     </div>
