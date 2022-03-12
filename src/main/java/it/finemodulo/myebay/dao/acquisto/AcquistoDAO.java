@@ -9,4 +9,6 @@ public interface AcquistoDAO extends IBaseDAO<Acquisto> {
 
 	List<Acquisto> findByUtente(Long idUtente);
 
+	List<Acquisto> findByExample(Acquisto example);
+
 }

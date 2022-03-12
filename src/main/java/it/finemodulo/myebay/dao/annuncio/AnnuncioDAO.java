@@ -14,4 +14,6 @@ public interface AnnuncioDAO extends IBaseDAO<Annuncio> {
 
 	public Optional<Annuncio> findOneWithUtenteECategorie(long idAnnuncioParam);
 
+	public List<Annuncio> findByExamplePersonali(Annuncio example);
+
 }

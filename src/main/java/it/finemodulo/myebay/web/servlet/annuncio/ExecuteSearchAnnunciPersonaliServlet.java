@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.finemodulo.myebay.model.Annuncio;
+import it.finemodulo.myebay.model.Utente;
 import it.finemodulo.myebay.service.MyServiceFactory;
 import it.finemodulo.myebay.utility.UtilityAnnuncio;
 
-@WebServlet("/public/ExecuteSearchAnnuncioServlet")
-public class ExecuteSearchAnnuncioServlet extends HttpServlet {
+@WebServlet("/annuncio/ExecuteSearchAnnunciPersonaliServlet")
+public class ExecuteSearchAnnunciPersonaliServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,17 +26,17 @@ public class ExecuteSearchAnnuncioServlet extends HttpServlet {
 		String[] categorieChecked = request.getParameterValues("categoriaEntry");
 
 		Annuncio example = UtilityAnnuncio.formCreateAnnuncio(testoAnnuncioParam, prezzoParam, categorieChecked);
-
+		example.setUtente((Utente) (request.getSession().getAttribute("userInfo")));
 		try {
-			request.setAttribute("annunci_list_attribute",
-					MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
+			request.setAttribute("annunciPersonali_list_attribute",
+					MyServiceFactory.getAnnuncioServiceInstance().findByExamplePersonali(example));
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			return;
 		}
-		request.getRequestDispatcher("list.jsp").forward(request, response);
+		request.getRequestDispatcher("listPersonali.jsp").forward(request, response);
 	}
 
 	@Override
@@ -43,4 +44,5 @@ public class ExecuteSearchAnnuncioServlet extends HttpServlet {
 
 		doPost(req, resp);
 	}
+
 }

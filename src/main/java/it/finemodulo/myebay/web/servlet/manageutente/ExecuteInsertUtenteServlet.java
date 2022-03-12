@@ -28,6 +28,7 @@ public class ExecuteInsertUtenteServlet extends HttpServlet {
 
 		Utente utenteInstance = UtilityUtente.createUtenteFormWithPassword(nomeParam, cognomeParam, userNameParam,
 				passwordParam, new Date(), roleCheck);
+		utenteInstance.setCreditoResiduo(0);
 
 		if (!UtilityUtente.validateUtenteBean(utenteInstance)) {
 			request.setAttribute("insert_utente_attr", utenteInstance);
@@ -36,12 +37,13 @@ public class ExecuteInsertUtenteServlet extends HttpServlet {
 				request.setAttribute("mappaRuoliConSelezionati_attr",
 						UtilityUtente.buildCheckedRolesFromRolesAlreadyInUtente(
 								MyServiceFactory.getRuoloServiceInstance().listAll(), utenteInstance.getRuoli()));
+				request.getRequestDispatcher("insert.jsp").forward(request, response);
+				return;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.getRequestDispatcher("PrepareInsertUtenteServlet").forward(request, response);
-			return;
+
 		}
 
 		try {

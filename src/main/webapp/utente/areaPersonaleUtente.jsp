@@ -64,7 +64,7 @@
 			        </div>
 			        <h2>I tuoi Acquisti </h2>
 			        <p>Da qui puoi visualizzare tutto quello che hai comprato, comodo no?</p>
-			        <a href="PrepareSearchRegistaServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/acquisto/PrepareSearchAcquistiServlet" class="icon-link">
 			          Vai agli acquisti
 			          <svg class="bi" width="1em" height="1em" > <use xlink:href="#chevron-right"/> </svg> 				
 					</a>
@@ -75,7 +75,7 @@
 			        </div>
 			        <h2>I tuoi Annunci</h2>
 			        <p> Qui invece puoi visualizzare i tuoi annunci chi sa se qualcuno ha comprato qualcosa!!</p>
-			        <a  href="${pageContext.request.contextPath}/annuncio/ExecuteAnnunciPersonaliServlet?idUtente=${userInfo.id}" class="icon-link">
+			        <a  href="${pageContext.request.contextPath}/annuncio/PrepareSearchAnnuncioPersonaliServlet" class="icon-link">
 			          Vai agli annunci
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -86,7 +86,7 @@
 			        </div>
 			        <h2>Cerca Annunci</h2>
 			        <p>Puoi sempre tornare ad acquistare qualcosa!!</p>
-			        <a href="PrepareSearchFilmServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/" class="icon-link">
 			          Vai alla ricerca annunci
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>

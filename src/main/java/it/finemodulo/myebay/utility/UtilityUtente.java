@@ -120,4 +120,25 @@ public class UtilityUtente {
 
 		return result;
 	}
+
+	public static Utente createUtenteFormsEdit(String nomeParam, String cognomeParam, String userNameParam,
+			String passwordParam, String dataParam, String statoParam, String[] roleCheck, String creditoParam) {
+		int credito = -1;
+		if (NumberUtils.isCreatable(creditoParam)) {
+			credito = Integer.parseInt(creditoParam);
+		}
+		Utente result = new Utente(userNameParam, passwordParam, nomeParam, cognomeParam,
+				parseDateCreazioneFromString(dataParam), credito);
+		result.setStato(StatoUtente.valueOf(statoParam));
+
+		if (roleCheck != null && roleCheck.length > 0) {
+			for (String itemRuolo : roleCheck) {
+				if (NumberUtils.isCreatable(itemRuolo)) {
+					result.getRuoli().add(new Ruolo(Long.parseLong(itemRuolo)));
+				}
+			}
+		}
+		return result;
+
+	}
 }

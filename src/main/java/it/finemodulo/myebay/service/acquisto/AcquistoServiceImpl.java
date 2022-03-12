@@ -11,11 +11,13 @@ import it.finemodulo.myebay.web.listner.LocalEntityManagerFactoryListener;
 public class AcquistoServiceImpl implements AcquistoService {
 
 	AcquistoDAO acquistoDAO;
+
 	@Override
 	public void setAcquistoDAO(AcquistoDAO acquistoDAO) {
-		this.acquistoDAO=acquistoDAO;
+		this.acquistoDAO = acquistoDAO;
 
 	}
+
 	@Override
 	public List<Acquisto> findAllByUtente(Long idUtente) {
 		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
@@ -25,6 +27,24 @@ public class AcquistoServiceImpl implements AcquistoService {
 			acquistoDAO.setEntityManager(entityManager);
 
 			return acquistoDAO.findByUtente(idUtente);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
+	@Override
+	public List<Acquisto> findByExample(Acquisto example) {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+
+			acquistoDAO.setEntityManager(entityManager);
+
+			return acquistoDAO.findByExample(example);
 
 		} catch (Exception e) {
 			e.printStackTrace();

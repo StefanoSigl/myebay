@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 import it.finemodulo.myebay.model.Annuncio;
 import it.finemodulo.myebay.model.Categoria;
@@ -67,6 +68,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 
 		whereClauses.add("a.aperto = :aperto ");
 		paramaterMap.put("aperto", true);
+
 		if (StringUtils.isNotEmpty(example.getTestoAnnuncio())) {
 			whereClauses.add(" a.testoAnnuncio  like :testoAnnuncio ");
 			paramaterMap.put("testoAnnuncio", "%" + example.getTestoAnnuncio() + "%");
@@ -89,6 +91,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			paramaterMap.put("categoria", idCategorie);
 
 		}
+		
 
 		queryBuilder.append(!whereClauses.isEmpty() ? " and " : "");
 		queryBuilder.append(StringUtils.join(whereClauses, " and "));
@@ -100,7 +103,53 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 
 		return typedQuery.getResultList();
 	}
+	@Override
+	public List<Annuncio> findByExamplePersonali(Annuncio example) {
+		Map<String, Object> paramaterMap = new HashMap<String, Object>();
+		List<String> whereClauses = new ArrayList<String>();
 
+		StringBuilder queryBuilder = new StringBuilder(
+				"select a from Annuncio a left join a.categorie c left join a.utente u where a.id = a.id ");
+
+		
+
+		if (StringUtils.isNotEmpty(example.getTestoAnnuncio())) {
+			whereClauses.add(" a.testoAnnuncio  like :testoAnnuncio ");
+			paramaterMap.put("testoAnnuncio", "%" + example.getTestoAnnuncio() + "%");
+		}
+		if (example.getPrezzo() > -1) {
+			whereClauses.add(" a.prezzo >= :prezzo ");
+			paramaterMap.put("prezzo", example.getPrezzo());
+		}
+
+		if (example.getDataInserimento() != null) {
+			whereClauses.add("a.dataInserimento >= :dataInserimento ");
+			paramaterMap.put("dataInserimento", example.getDataInserimento());
+		}
+		if (example.getCategorie() != null && example.getCategorie().size() > 0) {
+			List<Long> idCategorie = new ArrayList<>();
+			for (Categoria categoriaItem : example.getCategorie()) {
+				idCategorie.add(categoriaItem.getId());
+			}
+			whereClauses.add("c.id in :categoria");
+			paramaterMap.put("categoria", idCategorie);
+
+		}
+		if (example.getUtente()!=null && example.getUtente().getId() > 0) {
+			whereClauses.add("u.id = :idUtente ");
+			paramaterMap.put("idUtente", example.getUtente().getId());
+		}
+
+		queryBuilder.append(!whereClauses.isEmpty() ? " and " : "");
+		queryBuilder.append(StringUtils.join(whereClauses, " and "));
+		TypedQuery<Annuncio> typedQuery = entityManager.createQuery(queryBuilder.toString(), Annuncio.class);
+
+		for (String key : paramaterMap.keySet()) {
+			typedQuery.setParameter(key, paramaterMap.get(key));
+		}
+
+		return typedQuery.getResultList();
+	}
 	@Override
 	public List<Annuncio> findByUtente(long parseLong) {
 

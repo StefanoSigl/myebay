@@ -39,7 +39,23 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
 		}
 	}
+	@Override
+	public List<Annuncio> findByExamplePersonali(Annuncio example) {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
 
+		try {
+
+			annuncioDAO.setEntityManager(entityManager);
+
+			return annuncioDAO.findByExamplePersonali(example);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
 	@Override
 	public List<Annuncio> findByUtente(long parseLong) {
 		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();

@@ -52,6 +52,10 @@
 									<input type="password" class="form-control" name="password" id="password" placeholder="Inserire la password" value="${edit_utente_attr.password}" >
 								</div>
 								<div class="col-md-6">
+									<label for="credito" class="form-label">Credito </label>
+									<input type="number" class="form-control" name="credito" id="credito" placeholder="Inserire il credito" value="${edit_utente_attr.creditoResiduo}" >
+								</div>
+								<div class="col-md-6">
 									<label for="stato">Stato</label>
 								    <select class="form-select" id="stato" name="stato">
 								    	<option value="" selected>-Selezionare una voce-</option>
@@ -62,27 +66,8 @@
 								</div>
 								
 								<input type="hidden" value="${edit_utente_attr.id}" name="idUtenteEdit">
-								<!--  Prova visualizzazione checBox -->
-								<!-- 
-									<c:forEach items="${ruoliDisponibili}" var="ruoloItem" varStatus="status">
-										<c:if test="${ruoloItem.id==edit_utente_attr.ruoli.toArray()[status.index].id}">
-											<div class="form-che ck">
-												 <input class="form-check-input" name="ruoli" type="checkbox" value="${ruoloItem.id}" id="flexCheckDefault${ruoloItem.id}" checked>
-												 <label class="form-check-label" for="flexCheckDefault${ruoloItem.id}">
-												    ${ruoloItem.descrizione}
-												 </label>										
-											</div>
-										</c:if>
-										<c:if test="${ruoloItem.id!=edit_utente_attr.ruoli.toArray()[status.index].id}">
-											<div class="form-che ck">
-												 <input class="form-check-input" name="ruoli" type="checkbox" value="${ruoloItem.id}" id="flexCheckDefault${ruoloItem.id}" >
-												 <label class="form-check-label" for="flexCheckDefault${ruoloItem.id}">
-												    ${ruoloItem.descrizione}
-												 </label>										
-											</div>
-										</c:if>	
-									</c:forEach>-->
-									<!--  implementazione visualizzazione checBox -->
+								<input type="hidden" value="${edit_utente_attr.dateCreated}" name="dataCreazioneEdit">
+								
 									<div class="col-md-6 form-check">
 									<p>Ruoli:</p>
 									<c:forEach items="${mappaRuoliConSelezionati_attr}" var="ruoloEntry">

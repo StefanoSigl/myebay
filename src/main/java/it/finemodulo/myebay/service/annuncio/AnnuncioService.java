@@ -24,4 +24,6 @@ public interface AnnuncioService {
 
 	public void aggiorna(Annuncio annuncioPerEdit) throws Exception;
 
+	public List<Annuncio> findByExamplePersonali(Annuncio example);
+
 }
