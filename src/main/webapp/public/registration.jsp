@@ -24,7 +24,7 @@
 		 		 ${errorMessage}
 			</div>
 		  
-		    <img class="mb-4" src="${pageContext.request.contextPath}/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+		    <img class="mb-4" src="${pageContext.request.contextPath}/assets/img/ebay.webp" alt="" width="72" height="57">
 		    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 		
 		    <div class="form-floating">
@@ -52,7 +52,13 @@
 		      <label for="inputCredito">Credito </label>
 		    </div>
 		     <br>
-		    <button class="w-100 btn btn-lg btn-primary" type="submit">Confirm registration</button>
+		    <button class="w-100 btn btn-lg btn-success" type="submit">Confirm registration</button>
+		    <p class="mt-5 mb-3 text-muted">Sei gia registrato fai il login!</p>
+		    <a href="${pageContext.request.contextPath}/public/PrepareLoginUtenteServlet" class="btn btn-outline-success" style="width:300px;">
+		   Login</a>
+		    <a href="${pageContext.request.contextPath}/" class="btn btn-outline-success" style="width:300px;">
+		   Home</a>
+		   <br>
 		    <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
 		  </form>
 		</main>

@@ -72,7 +72,7 @@ public class ExecuteEditAnnuncioServlet extends HttpServlet {
 
 			request.setAttribute("annunciPersonali_list_attribute",
 					MyServiceFactory.getAnnuncioServiceInstance().findByUtente(annuncioPerEdit.getUtente().getId()));
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("?operationResult=ERROR");
@@ -80,7 +80,7 @@ public class ExecuteEditAnnuncioServlet extends HttpServlet {
 		}
 		request.getRequestDispatcher("listPersonali.jsp").forward(request, response);
 		request.getRequestDispatcher("ExecuteAnnunciPersonaliServlet?idUtente="
-				+ ((Utente) request.getSession().getAttribute("userInfo")).getId() + "&operationaResult=SUCCESS")
+				+ ((Utente) request.getSession().getAttribute("userInfo")).getId() + "&operationResult=SUCCESS")
 				.forward(request, response);
 	}
 

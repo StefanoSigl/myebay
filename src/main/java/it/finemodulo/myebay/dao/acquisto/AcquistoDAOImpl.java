@@ -27,8 +27,9 @@ public class AcquistoDAOImpl implements AcquistoDAO {
 	}
 
 	public Optional<Acquisto> findOne(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Acquisto result = entityManager.find(Acquisto.class, id);
+
+		return result != null ? Optional.of(result) : Optional.empty();
 	}
 
 	public void update(Acquisto input) throws Exception {

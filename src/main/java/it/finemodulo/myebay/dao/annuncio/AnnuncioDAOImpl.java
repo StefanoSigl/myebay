@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
 
 import it.finemodulo.myebay.model.Annuncio;
 import it.finemodulo.myebay.model.Categoria;

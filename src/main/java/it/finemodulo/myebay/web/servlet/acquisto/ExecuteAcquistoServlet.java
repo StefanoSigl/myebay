@@ -54,7 +54,7 @@ public class ExecuteAcquistoServlet extends HttpServlet {
 			request.getRequestDispatcher("show.jsp").forward(request, response);
 		}
 		response.sendRedirect(response.encodeRedirectURL(request.getContextPath()
-				+ "/acquisto/ExecuteAcquistiListUtenteServlet?operationResult=SUCCES"));
+				+ "/acquisto/ExecuteAcquistiListUtenteServlet?operationResult=SUCCESS"));
 
 	}
 

@@ -10,7 +10,7 @@
 	   
 	   <title>My Ebay</title>
 	 </head>
-	   <body class="d-flex flex-column h-100">
+	   <body class="d-flex flex-column h-100" style="background-image: url('img_girl.jpg');">
 	   		
 	   		<!-- #####################################  -->
 	   		<!-- elementi grafici per le features in basso  -->
@@ -55,7 +55,8 @@
 			    
 			     <div class="p-5 mb-4 bg-light rounded-3">
 				          <div class="container-fluid py-5">
-				        <h1 class="display-5 fw-bold">Benvenuto in My Ebay</h1>
+				        <h1 class="display-5 fw-bold">Benvenuto in My Ebay <span style="padding-left:300px"><img alt="" src="${pageContext.request.contextPath}/assets/img/ebay.webp" width="350" height="180"> </span></h1>
+				      
 				        <p class="col-md-8 fs-4">Questa piattaforma ti permette di creare annunci personalizzati con i quali vendere qualunque cosa, purchè usi le categorie giuste :P! oppure acquista qualcosa!! </p>
 				     </div>
 				    <div class='card'>
@@ -91,7 +92,7 @@
 								
 								
 								<div class="col-12">
-									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
+									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary bg-success">Conferma</button>
 									<input class="btn btn-outline-warning" type="reset" value="Ripulisci">
 								</div>
 								
@@ -106,23 +107,23 @@
 			  <div class="container px-4 py-5" id="featured-3">
 			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 			      <div class="feature col">
-			        <div class="feature-icon bg-primary bg-gradient">
+			        <div class="feature-icon bg-primary bg-success ">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
 			        <h2>Registrazione</h2>
 			        <p>Non sei iscritto clicca qui!</p>
-			        <a href="${pageContext.request.contextPath}/public/PrepareRegistrationUtenteServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/public/PrepareRegistrationUtenteServlet" style="color: green;" class="icon-link ">
 			         Registrati
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
 			      <div class="feature col">
-			        <div class="feature-icon bg-primary bg-gradient">
+			        <div class="feature-icon bg-primary bg-success">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
 			        </div>
 			        <h2>Login</h2>
 			        <p> Sei già registrato effettua il login!</p>
-			        <a href="${pageContext.request.contextPath}/public/PrepareLoginUtenteServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/public/PrepareLoginUtenteServlet" style="color: green;" class="icon-link">
 			         Effettua il login
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>

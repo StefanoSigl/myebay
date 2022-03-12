@@ -13,4 +13,6 @@ public interface AcquistoService {
 
 	public  List<Acquisto> findByExample(Acquisto example);
 
+	public Acquisto findOne(long parseLong) throws Exception;
+
 }

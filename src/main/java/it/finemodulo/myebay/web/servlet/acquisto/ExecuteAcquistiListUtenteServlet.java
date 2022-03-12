@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
+
 import it.finemodulo.myebay.model.Acquisto;
 import it.finemodulo.myebay.model.Utente;
 import it.finemodulo.myebay.service.MyServiceFactory;
@@ -19,6 +21,14 @@ public class ExecuteAcquistiListUtenteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		String operationResult = request.getParameter("operationResult");
+		if (StringUtils.isNotBlank(operationResult) && operationResult.equalsIgnoreCase("SUCCESS"))
+			request.setAttribute("successMessage", "Operazione effettuata con successo");
+		if (StringUtils.isNotBlank(operationResult) && operationResult.equalsIgnoreCase("ERROR"))
+			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
+		if (StringUtils.isNotBlank(operationResult) && operationResult.equalsIgnoreCase("NOT_FOUND"))
+			request.setAttribute("errorMessage", "Elemento non trovato.");
 
 		String descrizioneParam = request.getParameter("descrizione");
 		String prezzoParam = request.getParameter("prezzo");
@@ -32,6 +42,7 @@ public class ExecuteAcquistiListUtenteServlet extends HttpServlet {
 		request.getRequestDispatcher("acquistiList.jsp").forward(request, response);
 
 	}
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
