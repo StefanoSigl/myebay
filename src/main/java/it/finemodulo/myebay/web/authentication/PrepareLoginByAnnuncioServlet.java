@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/public/PrepareLoginUtenteServlet")
-public class PrepareLoginUtenteServlet extends HttpServlet {
+@WebServlet("/public/PrepareLoginByAnnuncioServlet")
+public class PrepareLoginByAnnuncioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		request.setAttribute("idAnnuncio", request.getParameter("idAnnuncio"));
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 

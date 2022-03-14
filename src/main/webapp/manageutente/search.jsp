@@ -51,19 +51,17 @@
 									<label for="dataDiCreazione" class="form-label">Data di Creazione</label>
                         			<input class="form-control" id="dataDiCreazione" type="date" placeholder="dd/MM/yy"
                             			title="formato : gg/mm/aaaa"  name="dataDiCreazione"   >
-                            	</div>		
+                            	</div>	
                             	<div class="col-md-6 form-check">
 									<p>Ruoli:</p>
-									<c:forEach items="${mappaRuoli_attr}" var="ruoloEntry">
-										<div class="form-check">
-											  <input class="form-check-input" name="ruoloInput" type="checkbox" value="${ruoloEntry.key.id}" id="ruoloInput-${ruoloEntry.key.id}">
-											  <label class="form-check-label" for="ruoloInput-${ruoloEntry.key.id}" >
-											    ${ruoloEntry.key.descrizione}
-											  </label>
-										</div>
-								  	</c:forEach>
-									</div>
-								
+									<c:forEach items="${mappaRuoli_attr}" var="ruoloInput">	
+									<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  										<input type="checkbox" name="ruoloInput" class="btn-check" value="${ruoloInput.key.id}" id="ruoloInput-${ruoloInput.key.id}" autocomplete="off">
+  										<label class="btn btn-outline-success" for="ruoloInput-${ruoloInput.key.id}" > ${ruoloInput.key.descrizione}</label>
+  									</div>	
+								  	</c:forEach>	
+                            	
+								</div>
 								<div class="col-12">
 									<button type="submit" name="submit" value="submit" id="submit" class="btn btn-success">Conferma</button>
 									<a class="btn btn-outline-success ml-2" href="PrepareInsertUtenteServlet">Add New</a>

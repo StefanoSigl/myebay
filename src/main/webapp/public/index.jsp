@@ -14,7 +14,7 @@
 	   
 </style>
 	 </head>
-	   <body class="d-flex flex-column h-100" >
+	   <body class="d-flex flex-column h-100"  >
 	   		
 	   		<!-- #####################################  -->
 	   		<!-- elementi grafici per le features in basso  -->
@@ -46,7 +46,7 @@
 			
 			<!-- Begin page content -->
 			<main class="flex-shrink-0">
-			  <div class="container ">
+			  <div class="container " >
 			  
 			  <div class="alert alert-success alert-dismissible fade show  ${successMessage==null?'d-none':'' }" role="alert">
 				  ${successMessage}
@@ -57,11 +57,11 @@
 				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
 				</div>
 			    
-			     <div class="p-5 mb-4 bg-light rounded-3">
-				          <div class="container-fluid py-5">
+			     <div class="p-5 mb-4 bg-light rounded-3" >
+				          <div class="container-fluid py-5" >
 				        <h1 class="display-5 fw-bold">Benvenuto in My Ebay <span style="padding-left:150px; "><img alt="" src="${pageContext.request.contextPath}/assets/img/ebayWhite.png" width="350" height="150"> </span></h1>
 				      
-				        <p class="col-md-8 fs-4">Questa piattaforma ti permette di creare annunci personalizzati con i quali vendere qualunque cosa, purchè usi le categorie giuste :P! oppure acquista qualcosa!! </p>
+				        <p class="col-md-8 fs-4">Questa piattaforma ti permette di creare annunci personalizzati con i quali vendere qualunque cosa, purchè usi le categorie giuste  &#128540; ! oppure acquista qualcosa!! </p>
 				     </div>
 				    <div class='card'>
 				    <div class='card-header'>
@@ -85,12 +85,12 @@
 								<div class="col-md-6 form-check">
 									<p>Categorie:</p>
 									<c:forEach items="${mappaCategorie_attr}" var="categoriaEntry">
-										<div class="form-check">
-											  <input class="form-check-input" name="categoriaEntry" type="checkbox" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}">
-											  <label class="form-check-label" for="categoriaInput-${categoriaEntry.key.id}" >
-											    ${categoriaEntry.key.descrizione}
-											  </label>
-										</div>
+									
+									<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  										<input type="checkbox" name="categoriaEntry" class="btn-check" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}"  autocomplete="off">
+  										<label class="btn btn-outline-success" for="categoriaInput-${categoriaEntry.key.id}" >${categoriaEntry.key.descrizione}</label>
+  									</div>
+									
 								  	</c:forEach>
 									</div>
 								

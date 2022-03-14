@@ -26,16 +26,17 @@ public class ExecuteAcquistoServlet extends HttpServlet {
 			response.sendRedirect("?operationResult=ERROR");
 			return;
 		}
-		Annuncio annuncioInAcquisto = MyServiceFactory.getAnnuncioServiceInstance()
-				.findOneWithUtenteECategorie(Long.parseLong(idAnnuncioParam));
 
 		if (utenteInfo == null) {
-			request.getSession().setAttribute("visual_annuncio", annuncioInAcquisto);
-			request.getSession().setAttribute("compra_senza_login", true);
-			response.sendRedirect(
-					response.encodeRedirectURL(request.getContextPath() + "/public/PrepareLoginUtenteServlet"));
+			// request.getSession().setAttribute("visual_annuncio", annuncioInAcquisto);
+			// request.getSession().setAttribute("compra_senza_login", true);
+
+			response.sendRedirect(response.encodeRedirectURL(
+					request.getContextPath() + "/public/PrepareLoginByAnnuncioServlet?idAnnuncio=" + idAnnuncioParam));
 			return;
 		}
+		Annuncio annuncioInAcquisto = MyServiceFactory.getAnnuncioServiceInstance()
+				.findOneWithUtenteECategorie(Long.parseLong(idAnnuncioParam));
 		if (utenteInfo.getCreditoResiduo() < annuncioInAcquisto.getPrezzo()) {
 
 			request.setAttribute("visual_annuncio", annuncioInAcquisto);
@@ -53,8 +54,8 @@ public class ExecuteAcquistoServlet extends HttpServlet {
 			request.setAttribute("errorMessage", "Qualcosa è andato storto");
 			request.getRequestDispatcher("show.jsp").forward(request, response);
 		}
-		response.sendRedirect(response.encodeRedirectURL(request.getContextPath()
-				+ "/acquisto/ExecuteAcquistiListUtenteServlet?operationResult=SUCCESS"));
+		response.sendRedirect(response.encodeRedirectURL(
+				request.getContextPath() + "/acquisto/ExecuteAcquistiListUtenteServlet?operationResult=SUCCESS"));
 
 	}
 

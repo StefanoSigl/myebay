@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="it">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 	<head>
 		<meta charset="utf-8">
@@ -14,12 +15,14 @@
 	
 	</head>
 	
-	
-	<body class="text-center">
+	<!-- Fixed navbar -->
+	<jsp:include page="/public/navbar.jsp"></jsp:include>	
+	<body class="text-center ">
 	    
 		<main class="form-signin">
-		  <form action="LoginServlet" method="post" novalidate="novalidate">
-		  
+		
+		  <form  action="${idAnnuncio==null?'LoginServlet':'LoginByAnnuncioServlet'}" method="post" novalidate="novalidate">
+		
 	  		<div class="alert alert-danger alert-dismissible fade show ${errorMessage==null?'d-none': ''}" role="alert">
 		 		 ${errorMessage}
 			</div>
@@ -27,10 +30,11 @@
 				  ${successMessage}
 				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
 				</div>
-		    <img class="mb-4" src="${pageContext.request.contextPath}/assets/img/ebay.webp" alt="" width="72" height="57">
-		    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-		
-		    <div class="form-floating">
+				<div class="card " style="width: 100%;background-color: #ddfada;">
+				  <img src="${pageContext.request.contextPath}/assets/img/ebay.webp" class="card-img-top" alt="...">
+				  <div class="card-body">
+				    <h5 class="card-title">Please sign in</h5>
+				    <p class="card-text"> <div class="form-floating">
 		      <input type="text" name="inputUsername" class="form-control" id="inputUsername" placeholder="username">
 		      <label for="inputUsername">Email address</label>
 		    </div>
@@ -38,14 +42,14 @@
 		      <input type="password" name="inputPassword" class="form-control" id="inputPassword" placeholder="Password">
 		      <label for="inputPassword">Password</label>
 		    </div>
-		
-		    <div class="checkbox mb-3">
-		      <label>
-		        <input type="checkbox" value="remember-me"> Remember me
-		      </label>
-		    </div>
-		    <button class="w-100 btn btn-lg btn-success" type="submit">Sign in</button>
-		    <p class="mt-5 mb-3 text-muted">&#10069 Se non sei ancora registrato clicca qui&#10069</p>
+		    
+		    	<input type="hidden" value="${idAnnuncio}" name="idAnnuncio">
+				    <button class="w-100 btn btn-lg btn-success" onclick="changeSpinner()" type="submit">Sign in 
+				    
+				    </button>
+				  </div>
+				</div>
+		    <p class="mt-5 mb-3 text-muted"> &#10069 Se non sei ancora registrato clicca qui &#10069</p>
 		   <a href="${pageContext.request.contextPath}/public/PrepareRegistrationUtenteServlet" class="btn btn-outline-success" style="width:300px;">
 		   Registrati</a>
 		   <br>

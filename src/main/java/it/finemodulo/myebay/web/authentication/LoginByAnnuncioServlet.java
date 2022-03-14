@@ -1,7 +1,6 @@
 package it.finemodulo.myebay.web.authentication;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,15 +12,11 @@ import org.apache.commons.lang3.StringUtils;
 import it.finemodulo.myebay.model.Utente;
 import it.finemodulo.myebay.service.MyServiceFactory;
 
-@WebServlet("/public/LoginServlet")
-public class LoginServlet extends HttpServlet {
+
+@WebServlet("/public/LoginByAnnuncioServlet")
+public class LoginByAnnuncioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		throw new UnsupportedOperationException("Invocation of doGet not allowed for this Servlet");
-	}
-
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String loginInput = request.getParameter("inputUsername");
@@ -48,13 +43,13 @@ public class LoginServlet extends HttpServlet {
 					//mando redirect alla show annuncio
 					response.sendRedirect(response.encodeRedirectURL(request.getContextPath() +"/public/ExecuteVisualizzaAnnuncioServlet"));
 					return;
-					
-				}*/
-				//altrimenti va alla sua area personale
-				request.getSession().setAttribute("userInfo", utenteInstance);
-				response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/utente/AreaPersonaleServlet"));
-				return;
-			
+				 } */
+			// altrimenti va alla sua area personale
+			request.getSession().setAttribute("userInfo", utenteInstance);
+			response.sendRedirect(response.encodeRedirectURL(request.getContextPath()
+					+ "/public/ExecuteVisualizzaAnnuncioServlet?idAnnuncio=" + request.getParameter("idAnnuncio")));
+			return;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			destinazione = "login.jsp";

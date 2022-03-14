@@ -68,17 +68,16 @@
 								<input type="hidden" value="${edit_utente_attr.id}" name="idUtenteEdit">
 								<input type="hidden" value="${edit_utente_attr.dateCreated}" name="dataCreazioneEdit">
 								
-									<div class="col-md-6 form-check">
+								<div class="col-md-6 form-check">
 									<p>Ruoli:</p>
-									<c:forEach items="${mappaRuoliConSelezionati_attr}" var="ruoloEntry">
-										<div class="form-check">
-											  <input class="form-check-input" name="ruoloInput" type="checkbox" value="${ruoloEntry.key.id}" id="ruoloInput-${ruoloEntry.key.id}" ${ruoloEntry.value?'checked':'' }>
-											  <label class="form-check-label" for="ruoloInput-${ruoloEntry.key.id}" >
-											    ${ruoloEntry.key.descrizione}
-											  </label>
-										</div>
-								  	</c:forEach>
-									</div>
+									<c:forEach items="${mappaRuoliConSelezionati_attr}" var="ruoloInput">	
+									<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  										<input type="checkbox" name="ruoloInput" class="btn-check" value="${ruoloInput.key.id}" id="ruoloInput-${ruoloInput.key.id}" ${ruoloInput.value?'checked':'' } autocomplete="off">
+  										<label class="btn btn-outline-success" for="ruoloInput-${ruoloInput.key.id}" > ${ruoloInput.key.descrizione}</label>
+  									</div>	
+								  	</c:forEach>	
+                            	
+								</div>
 								
 							<div class="col-12">
 							

@@ -19,7 +19,7 @@ public class ExecuteVisualizzaAnnuncioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if (request.getSession().getAttribute("compra_senza_login") != null
+		/*if (request.getSession().getAttribute("compra_senza_login") != null
 				&& (boolean) request.getSession().getAttribute("compra_senza_login")) {
 			request.setAttribute("visual_annuncio", request.getSession().getAttribute("visual_annuncio"));
 			request.getSession().removeValue("visual_annuncio");
@@ -29,7 +29,7 @@ public class ExecuteVisualizzaAnnuncioServlet extends HttpServlet {
 			request.getRequestDispatcher("show.jsp").forward(request, response);
 			return;
 
-		}
+		}*/
 		String idAnnuncioParam = request.getParameter("idAnnuncio");
 
 		if (!NumberUtils.isCreatable(idAnnuncioParam)) {

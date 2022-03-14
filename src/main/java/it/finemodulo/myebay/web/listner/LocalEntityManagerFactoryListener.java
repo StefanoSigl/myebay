@@ -106,6 +106,15 @@ public class LocalEntityManagerFactoryListener implements ServletContextListener
 		if (categoriaServiceInstance.cercaPerDescrizioneECodice("Casa", "CAT_CASA") == null) {
 			categoriaServiceInstance.inserisciNuovo(new Categoria("Casa", "CAT_CASA"));
 		}
+		if (categoriaServiceInstance.cercaPerDescrizioneECodice("Giardino", "CAT_GIARDINO") == null) {
+			categoriaServiceInstance.inserisciNuovo(new Categoria("Giardino", "CAT_GIARDINO"));
+		}
+		if (categoriaServiceInstance.cercaPerDescrizioneECodice("Guerra", "CAT_GUERRA") == null) {
+			categoriaServiceInstance.inserisciNuovo(new Categoria("Guerra", "CAT_GUERRA"));
+		}
+		if (categoriaServiceInstance.cercaPerDescrizioneECodice("Idraulica", "CAT_IDRAULICA") == null) {
+			categoriaServiceInstance.inserisciNuovo(new Categoria("Idraulica", "CAT_IDRAULICA"));
+		}
 
 	}
 

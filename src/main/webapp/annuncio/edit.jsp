@@ -41,12 +41,7 @@
 									<label for="prezzo" class="form-label">Prezzo</label>
 									<input type="number" name="prezzo" value="${edit_annuncio.prezzo}" id="prezzo" class="form-control" placeholder="Inserire un minimo di prezzo" >
 								</div>
-								
-								
-                        		
-								
-							
-							
+			
 								<div class="col-md-6">
 									<label for="stato">Stato</label>
 								    <select class="form-select" id="stato" name="stato">
@@ -60,14 +55,15 @@
 								<div class="col-md-6 form-check">
 									<p>Categorie:</p>
 									<c:forEach items="${mappaCategorie_attr}" var="categoriaEntry">
-										<div class="form-check">
-											  <input class="form-check-input" name="categoriaEntry" type="checkbox" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}" ${categoriaEntry.value?'checked':''}>
-											  <label class="form-check-label" for="categoriaInput-${categoriaEntry.key.id}" >
-											    ${categoriaEntry.key.descrizione}
-											  </label>
-										</div>
+									
+									<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  										<input type="checkbox" name="categoriaEntry" class="btn-check" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}" ${categoriaEntry.value?'checked':''} autocomplete="off">
+  										<label class="btn btn-outline-success" for="categoriaInput-${categoriaEntry.key.id}" >${categoriaEntry.key.descrizione}</label>
+  									</div>
+										
 								  	</c:forEach>
-									</div>
+								</div>
+									
 								<input  type="hidden" name="dataInserimento" value="${edit_annuncio.dataInserimento }">
 								<input type="hidden" name="idAnnuncio" value="${edit_annuncio.id}">
 								<input type="hidden" name="idUtente" value="${edit_annuncio.utente.id}">

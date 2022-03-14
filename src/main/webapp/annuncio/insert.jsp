@@ -45,14 +45,14 @@
 								<div class="col-md-6 form-check">
 									<p>Categorie:</p>
 									<c:forEach items="${mappaCategorie_attr}" var="categoriaEntry">
-										<div class="form-check">
-											  <input class="form-check-input" name="categoriaEntry" type="checkbox" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}" ${categoriaEntry.value?'checked':''}>
-											  <label class="form-check-label" for="categoriaInput-${categoriaEntry.key.id}" >
-											    ${categoriaEntry.key.descrizione}
-											  </label>
-										</div>
+									
+									<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  										<input type="checkbox" name="categoriaEntry" class="btn-check" value="${categoriaEntry.key.id}" id="categoriaInput-${categoriaEntry.key.id}" ${categoriaEntry.value?'checked':''} autocomplete="off">
+  										<label class="btn btn-outline-success" for="categoriaInput-${categoriaEntry.key.id}" >${categoriaEntry.key.descrizione}</label>
+  									</div>
+										
 								  	</c:forEach>
-									</div>
+								</div>
 								
 								
 								<div class="col-12">
